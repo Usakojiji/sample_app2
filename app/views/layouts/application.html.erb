@@ -11,6 +11,12 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
+      
+      # flashメッセージをwebサイト全体にわたって表示できるようにする
+      <% flash.each do |key, value| %>
+      <div class="alert <%= bootstrap_class_for(key) %>"><%= value %></div>
+      <% end %>
+      
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
